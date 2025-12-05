@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/1d36c0aa30.js" crossorigin="anonymous"></script>
+  <title>Daniel Pace - Portfolio</title>
+</head>
+<body id="top">
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="#top" class="nav-logo">Daniel Pace</a>
+
+      <!-- Nav Menu -->
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <!-- Close button for mobile -->
+        <button class="nav-close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Right side buttons -->
+      <div class="nav-btns">
+        <button id="change-theme" class="change-theme" aria-label="Toggle theme">
+          <i class="fa-regular fa-sun"></i>
+        </button>
+        <!-- Hamburger toggle -->
+        <button class="nav-toggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Home Section -->
+    <section class="home-container container grid" id="home">
+      <!-- Left: Text -->
+      <div class="home-data">
+        <h1 class="home-title">Daniel</h1>
+        <h2 class="home-job">Web Developer / Designer / Software Developer</h2>
+        <p class="home-description">
+          I am building my portfolio to showcase creative and technical work. 
+          This site brings together my passion for 3D design, front-end development, 
+          and digital art into one professional hub.
+        </p>
+        <div class="home-buttons">
+          <a href="portfolio/portfolio web design&dev.pdf" class="button">My Work</a>
+          <a href="https://github.com/leinad222" target="_blank" class="home-social-link" rel="noopener noreferrer">
+            Github <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Right: Image -->
+      <div class="home-image-wrapper">
+        <img src="images/profile-image.png" alt="Portrait of Daniel Pace" class="home-img">
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container container grid">
+        
+        <div class="about-experience">
+          <span class="about-no">5</span>
+          <h3 class="about-title">Years<br>Experience</h3>
+        </div>
+        
+        <h1 class="about-description">
+          <span class="text-gradient">Over the past five years</span>, I have built a strong foundation in HTML, CSS, 
+          and JavaScript,<span class="text-gradient"> evolving from simple static pages to clean and responsive designs.</span>
+        </h1>
+        
+        <a href="cv/Updated 20_09_2025 (2).pdf" download class="button">Download CV</a>
+        
+        <ul class="about-data data-grid" id="data-grid">
+          <li class="about-item">
+            <h3 class="about-details">Certified Photoshop User</h3>
+            <img src="images/icons8-photoshop-40.png" alt="Photoshop logo">
+          </li>
+          <li class="about-item">
+            <h3 class="about-details">Certified Illustrator User</h3>
+            <img src="images/icons8-illustrator-40.png" alt="Illustrator logo">
+          </li>
+          <li class="about-item">
+            <h3 class="about-details">Amazon and eBay Affiliate</h3>
+            <img src="images/icons8-amazon-40.png" alt="Amazon logo">
+            <img src="images/icons8-ebay-40.png" alt="eBay logo">
+          </li>
+        </ul>
+    </section>
+      <br>
+    <section class="services-section" id="services">
+        <h2 class="section-title">My Services</h2>
+        <div class="services-container container grid">
+            <article class="services-card">
+                <span class="services-no">01</span>
+                <h3 class="services-title">Responsive Design</h3>
+                <p class="services-description">Ensure your website looks great on any device, with layouts that adapt to different screen sizes seamlessly.</p>
+            </article>
+            <article class="services-card">
+                <span class="services-no">02</span>
+                <h3 class="services-title">CMS Development</h3>
+                <p class="services-description">Set up user-friendly CMS solutions like WordPress or custom-built options so clients can manage content easily.</p>
+            </article>
+            <article class="services-card">
+                <span class="services-no">03</span>
+                <h3 class="services-title">API Integrations</h3>
+                <p class="services-description">Build and integrate APIs to connect websites with third-party applications, enhancing functionality.</p>
+            </article>
+        </div>
+    </section>
+   
+    <section class="skills-section" id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-container container grid">
+        <div class="skills-column">
+          <h3 class="skills-category">Software/Web-Developer</h3>
+          <ul class="skills-list">
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-html-40.png" alt="HTML"></div>
+              <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-css-40.png" alt="CSS"></div>
+              <div class="skill-meta"><span class="skill-name">CSS</span><span class="skill-level">Advanced</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-js-40.png" alt="JavaScript"></div>
+              <div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-react-native-48.png" alt="React"></div>
+              <div class="skill-meta"><span class="skill-name">React</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-sql-40.png" alt="SQL"></div>
+              <div class="skill-meta"><span class="skill-name">SQL</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-c-sharp-40.png" alt="C#"></div>
+              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span></div>
+            </li>
+          </ul>
+        </div>
+         <div class="skills-column">
+          <h3 class="skills-category">Enviroment Artist/Game Artist</h3>
+          <ul class="skills-list">
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-photoshop-40.png" alt="Photoshop"></div>
+              <div class="skill-meta"><span class="skill-name">Photoshop</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-unity-50.png" alt="Unity"></div>
+              <div class="skill-meta"><span class="skill-name">Unity</span><span class="skill-level">Advanced</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-graphic-tablet-64.png" alt="Graphic Tablet"></div>
+              <div class="skill-meta"><span class="skill-name">Digital Painting</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-object-oriented-programming-40.png" alt="Object Oriented Programming"></div>
+              <div class="skill-meta"><span class="skill-name">Object Oriented Programming</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-illustrator-40.png" alt="Illustrator"></div>
+              <div class="skill-meta"><span class="skill-name">Illustrator</span><span class="skill-level">Expert</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-c-sharp-40.png" alt="C#"></div>
+              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-icon"><img src="images/icons8-3d-modelling-32.png" alt="3D Modelling"></div>
+              <div class="skill-meta"><span class="skill-name">3D Modelling</span><span class="skill-level">Intermediate</span></div>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container container grid">
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <h2 class="contact-title">Let's Talk About<br>Your Project</h2>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3 class="contact-label">E-mail</h3>
+              <p class="contact-value">hello@domain.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3 class="contact-label">Phone</h3>
+              <p class="contact-value">+123 445 566</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-details">
+              <h3 class="contact-label">Location</h3>
+              <p class="contact-value">123 Main Street New York, 10001</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-input" placeholder="" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" class="form-input form-textarea" placeholder="" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="button">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container container">
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2024 Daniel Pace. All Rights Reserved</p>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://github.com/leinad222" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="footer-credit">
+        <p class="footer-credit-text">Beautifully designed by <a href="#" class="footer-credit-link">Ushi</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
