@@ -21,7 +21,7 @@ const sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', () => {
   let current = '';
-  
+
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
@@ -64,7 +64,7 @@ function updateThemeIcon(theme) {
 themeToggle.addEventListener('click', () => {
   const currentTheme = html.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
+
   html.setAttribute('data-theme', newTheme);
   localStorage.setItem(THEME_KEY, newTheme);
   updateThemeIcon(newTheme);
@@ -120,7 +120,7 @@ window.addEventListener("load", () => {
 
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger);
-  
+
   // Text gradient animation
   gsap.utils.toArray('.text-gradient').forEach((span) => {
     gsap.to(span, {
@@ -169,7 +169,108 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
-      });
+      }); function updateCartUI() {
+        // ... existing item mapping logic ...
+
+        const paypalContainer = document.getElementById('paypal-button-container');
+        const quoteNotice = document.getElementById('quote-notice');
+
+        if (hasCustomQuote || cart.length === 0) {
+          if (paypalContainer) paypalContainer.style.display = 'none';
+          if (quoteNotice) quoteNotice.style.display = 'block';
+        } else {
+          if (paypalContainer) paypalContainer.style.display = 'block';
+          if (quoteNotice) quoteNotice.style.display = 'none';
+        }
+        // Function to initialize PayPal
+        function initPayPal() {
+          // Check if the container exists and isn't empty
+          const container = document.getElementById('paypal-button-container');
+          if (!container) return;
+          container.innerHTML = '';
+
+          paypal.Buttons({
+            createOrder: function (data, actions) {
+              // Pull the total from your subtotal element
+              const amount = document.getElementById('cart-subtotal').innerText.replace('€', '').trim();
+              return actions.order.create({
+                purchase_units: [{
+                  amount: { value: amount }
+                }]
+              });
+            },
+            onApprove: function (data, actions) {
+              return actions.order.capture().then(function (details) {
+                alert('Success! Thank you ' + details.payer.name.given_name);
+                cart = []; // Clear the bag
+                updateCartUI();
+              });
+            }
+          }).render('#paypal-button-container');
+        }
+
+        // Update your existing updateCartUI function to trigger PayPal
+        const originalUpdateUI = updateCartUI;
+        updateCartUI = function () {
+          originalUpdateUI(); // Run your old code first
+
+          const paypalDiv = document.getElementById('paypal-button-container');
+          const quoteNotice = document.getElementById('quote-notice');
+
+          // logic to hide/show based on if a 'Custom Quote' item exists
+          let hasQuote = cart.some(item => item.price.toLowerCase().includes('quote'));
+
+          if (hasQuote || cart.length === 0) {
+            if (paypalDiv) paypalDiv.style.display = 'none';
+            if (quoteNotice) quoteNotice.style.display = cart.length > 0 ? 'block' : 'none';
+          } else {
+            if (paypalDiv) paypalDiv.style.display = 'block';
+            if (quoteNotice) quoteNotice.style.display = 'none';
+            initPayPal(); // Show and refresh the PayPal button
+          }
+        };
+        window.addEventListener('scroll', () => {
+          let current = '';
+          const sections = document.querySelectorAll('section');
+          const navLinks = document.querySelectorAll('.nav-links li a');
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 60) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+              link.classList.add('active');
+            }
+          });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+          const quoteButtons = document.querySelectorAll('.quote-trigger');
+          const subjectInput = document.getElementById('product-subject');
+          const quoteSection = document.getElementById('quote-section');
+
+          quoteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              // 1. Get the product name from the data attribute
+              const productName = button.getAttribute('data-product');
+
+              // 2. Fill the form input
+              subjectInput.value = `Quote for: ${productName}`;
+
+              // 3. Smooth scroll to the quote section
+              quoteSection.scrollIntoView({ behavior: 'smooth' });
+
+              // Optional: Add a brief highlight effect to the input
+              subjectInput.style.backgroundColor = '#fff9c4';
+              setTimeout(() => subjectInput.style.backgroundColor = '#fff', 1000);
+            });
+          });
+        });
+      }
     }
   });
 });

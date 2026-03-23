@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=EUR"></script>
   <script src="https://kit.fontawesome.com/1d36c0aa30.js" crossorigin="anonymous"></script>
+
   <title>Daniel Pace - Portfolio</title>
 </head>
+
 <body id="top">
   <!-- Header -->
   <header class="header">
@@ -22,6 +26,7 @@
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
         </ul>
         <!-- Close button for mobile -->
         <button class="nav-close" aria-label="Close menu">
@@ -39,6 +44,27 @@
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
+      <div class="cart-summary">
+        <div class="summary-line">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal">€0.00</span>
+        </div>
+
+        <div id="paypal-button-container"></div>
+
+        <div class="quote-notice" id="quote-notice">
+          <i class="fa-solid fa-circle-info"></i>
+          Your inquiry includes custom installation services. Please request a quote to finalize pricing.
+        </div>
+
+        <button class="btn-primary checkout-btn" onclick="renderPage('contact'); toggleCart();">
+          Request Final Quote
+        </button>
+      </div>
+      </button>
+      </div>
+      </div>
+      </div>
     </nav>
   </header>
 
@@ -51,8 +77,8 @@
         <h1 class="home-title">Daniel</h1>
         <h2 class="home-job">Web Developer / Designer / Software Developer</h2>
         <p class="home-description">
-          I am building my portfolio to showcase creative and technical work. 
-          This site brings together my passion for 3D design, front-end development, 
+          I am building my portfolio to showcase creative and technical work.
+          This site brings together my passion for 3D design, front-end development,
           and digital art into one professional hub.
         </p>
         <div class="home-buttons">
@@ -71,19 +97,20 @@
     <!-- About Section -->
     <section class="about-section" id="about">
       <div class="about-container container grid">
-        
+
         <div class="about-experience">
           <span class="about-no">5</span>
           <h3 class="about-title">Years<br>Experience</h3>
         </div>
-        
+
         <h1 class="about-description">
-          <span class="text-gradient">Over the past five years</span>, I have built a strong foundation in HTML, CSS, 
-          and JavaScript,<span class="text-gradient"> evolving from simple static pages to clean and responsive designs.</span>
+          <span class="text-gradient">Over the past five years</span>, I have built a strong foundation in HTML, CSS,
+          and JavaScript,<span class="text-gradient"> evolving from simple static pages to clean and responsive
+            designs.</span>
         </h1>
-        
+
         <a href="cv/Updated 20_09_2025 (2).pdf" download class="button">Download CV</a>
-        
+
         <ul class="about-data data-grid" id="data-grid">
           <li class="about-item">
             <h3 class="about-details">Certified Photoshop User</h3>
@@ -100,28 +127,31 @@
           </li>
         </ul>
     </section>
-      <br>
+    <br>
     <section class="services-section" id="services">
-        <h2 class="section-title">My Services</h2>
-        <div class="services-container container grid">
-            <article class="services-card">
-                <span class="services-no">01</span>
-                <h3 class="services-title">Responsive Design</h3>
-                <p class="services-description">Ensure your website looks great on any device, with layouts that adapt to different screen sizes seamlessly.</p>
-            </article>
-            <article class="services-card">
-                <span class="services-no">02</span>
-                <h3 class="services-title">CMS Development</h3>
-                <p class="services-description">Set up user-friendly CMS solutions like WordPress or custom-built options so clients can manage content easily.</p>
-            </article>
-            <article class="services-card">
-                <span class="services-no">03</span>
-                <h3 class="services-title">API Integrations</h3>
-                <p class="services-description">Build and integrate APIs to connect websites with third-party applications, enhancing functionality.</p>
-            </article>
-        </div>
+      <h2 class="section-title">My Services</h2>
+      <div class="services-container container grid">
+        <article class="services-card">
+          <span class="services-no">01</span>
+          <h3 class="services-title">Responsive Design</h3>
+          <p class="services-description">Ensure your website looks great on any device, with layouts that adapt to
+            different screen sizes seamlessly.</p>
+        </article>
+        <article class="services-card">
+          <span class="services-no">02</span>
+          <h3 class="services-title">CMS Development</h3>
+          <p class="services-description">Set up user-friendly CMS solutions like WordPress or custom-built options so
+            clients can manage content easily.</p>
+        </article>
+        <article class="services-card">
+          <span class="services-no">03</span>
+          <h3 class="services-title">API Integrations</h3>
+          <p class="services-description">Build and integrate APIs to connect websites with third-party applications,
+            enhancing functionality.</p>
+        </article>
+      </div>
     </section>
-   
+
     <section class="skills-section" id="skills">
       <h2 class="section-title">My Skills</h2>
       <div class="skills-container container grid">
@@ -130,7 +160,8 @@
           <ul class="skills-list">
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-html-40.png" alt="HTML"></div>
-              <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-level">Intermediate</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-css-40.png" alt="CSS"></div>
@@ -138,52 +169,64 @@
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-js-40.png" alt="JavaScript"></div>
-              <div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">JavaScript</span><span
+                  class="skill-level">Intermediate</span></div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-react-native-48.png" alt="React"></div>
-              <div class="skill-meta"><span class="skill-name">React</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">React</span><span class="skill-level">Intermediate</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-sql-40.png" alt="SQL"></div>
-              <div class="skill-meta"><span class="skill-name">SQL</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">SQL</span><span class="skill-level">Intermediate</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-c-sharp-40.png" alt="C#"></div>
-              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span>
+              </div>
             </li>
           </ul>
         </div>
-         <div class="skills-column">
+        <div class="skills-column">
           <h3 class="skills-category">Enviroment Artist/Game Artist</h3>
           <ul class="skills-list">
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-photoshop-40.png" alt="Photoshop"></div>
-              <div class="skill-meta"><span class="skill-name">Photoshop</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">Photoshop</span><span
+                  class="skill-level">Intermediate</span></div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-unity-50.png" alt="Unity"></div>
-              <div class="skill-meta"><span class="skill-name">Unity</span><span class="skill-level">Advanced</span></div>
+              <div class="skill-meta"><span class="skill-name">Unity</span><span class="skill-level">Advanced</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-graphic-tablet-64.png" alt="Graphic Tablet"></div>
-              <div class="skill-meta"><span class="skill-name">Digital Painting</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">Digital Painting</span><span
+                  class="skill-level">Intermediate</span></div>
             </li>
             <li class="skill-item">
-              <div class="skill-icon"><img src="images/icons8-object-oriented-programming-40.png" alt="Object Oriented Programming"></div>
-              <div class="skill-meta"><span class="skill-name">Object Oriented Programming</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-icon"><img src="images/icons8-object-oriented-programming-40.png"
+                  alt="Object Oriented Programming"></div>
+              <div class="skill-meta"><span class="skill-name">Object Oriented Programming</span><span
+                  class="skill-level">Intermediate</span></div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-illustrator-40.png" alt="Illustrator"></div>
-              <div class="skill-meta"><span class="skill-name">Illustrator</span><span class="skill-level">Expert</span></div>
+              <div class="skill-meta"><span class="skill-name">Illustrator</span><span class="skill-level">Expert</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-c-sharp-40.png" alt="C#"></div>
-              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">C#</span><span class="skill-level">Intermediate</span>
+              </div>
             </li>
             <li class="skill-item">
               <div class="skill-icon"><img src="images/icons8-3d-modelling-32.png" alt="3D Modelling"></div>
-              <div class="skill-meta"><span class="skill-name">3D Modelling</span><span class="skill-level">Intermediate</span></div>
+              <div class="skill-meta"><span class="skill-name">3D Modelling</span><span
+                  class="skill-level">Intermediate</span></div>
             </li>
           </ul>
         </div>
@@ -195,7 +238,7 @@
         <!-- Left: Contact Info -->
         <div class="contact-info">
           <h2 class="contact-title">Let's Talk About<br>Your Project</h2>
-          
+
           <div class="contact-item">
             <div class="contact-icon">
               <i class="fa-solid fa-envelope"></i>
@@ -248,7 +291,47 @@
         </form>
       </div>
     </section>
+    <section class="product-section">
+      <section id="products" class="products-section">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-gallery">
+          <div class="product-card">
+            <img src="images/Screenshot 2026-03-23 085853.png" alt="Product Gallery">
+            <div class="product-info">
+              <h3>My Portfolio</h3>
+              <p>Short description of the product features.</p>
+              <button class="btn">View Details</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="images/Screenshot 2026-03-22 180002.png" alt="Product 1">
+            <div class="product-info">
+              <h3>Max Wheels</h3>
+              <p>Short description of the product features.</p>
+              <button class="quote-trigger" data-product="Premium Widget">Request Quote</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="images/Screenshot 2026-03-23 085656.png" alt="Product 2">
+            <div class="product-info">
+              <h3>Bazaar Showroom</h3>
+              <p>High-quality build.</p>
+              <button class="quote-trigger" data-product="Premium Widget">Request Quote</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="images/Screenshot 2026-03-23 085044.png" alt="Product 3">
+            <h3>Grocery 24/7</h3>
+            <p>For Grocery E-Commence </p>
+            <button class="quote-trigger" data-product="Premium Widget">Request Quote</button>
+          </div>
+        </div>
 
+        </div>
+        </div>
+
+        </div>
+      </section>
   </main>
 
   <!-- Footer -->
@@ -259,16 +342,20 @@
       </div>
 
       <div class="footer-socials">
-        <a href="https://github.com/leinad222" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+        <a href="https://github.com/leinad222" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+          aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+          aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+          aria-label="Twitter">
           <i class="fa-brands fa-twitter"></i>
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+          aria-label="Instagram">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
@@ -284,4 +371,5 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
