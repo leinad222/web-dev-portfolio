@@ -268,6 +268,28 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
               subjectInput.style.backgroundColor = '#fff9c4';
               setTimeout(() => subjectInput.style.backgroundColor = '#fff', 1000);
             });
+            document.addEventListener('DOMContentLoaded', () => {
+              const quoteButtons = document.querySelectorAll('.quote-trigger');
+              const subjectInput = document.getElementById('product-subject');
+              const quoteSection = document.getElementById('quote-section');
+
+              quoteButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                  // 1. Get the product name from the data attribute
+                  const productName = button.getAttribute('data-product');
+
+                  // 2. Fill the form input
+                  subjectInput.value = `Quote for: ${productName}`;
+
+                  // 3. Smooth scroll to the quote section
+                  quoteSection.scrollIntoView({ behavior: 'smooth' });
+
+                  // Optional: Add a brief highlight effect to the input
+                  subjectInput.style.backgroundColor = '#fff9c4';
+                  setTimeout(() => subjectInput.style.backgroundColor = '#fff', 1000);
+                });
+              });
+            });
           });
         });
       }
